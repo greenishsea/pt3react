@@ -1,0 +1,11 @@
+.alert {
+  margin: $margin-m;
+}
+
+.alert__error {
+  color: $error-color;
+}
+
+.alert__success {
+  color: $success-color;
+}

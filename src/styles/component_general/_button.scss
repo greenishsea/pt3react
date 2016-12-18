@@ -1,0 +1,107 @@
+/*
+ * button base
+ */
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  font-size: $font-size-l;
+  font-weight: 400;
+  line-height: 1.5;
+  color: $main-button-color;
+  background-color: #fff;
+  border: 1px solid $main-button-color;
+  border-radius: $border-radius-s;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  outline: none;
+  transition: 0.25s; /* only for impression */
+}
+
+.btn:focus
+ {
+  color: $main-button-color;
+  background-color: $white;
+  opacity: 0.8;
+}
+
+.btn:hover
+{
+  color: $white;
+  background-color: $main-button-color;
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+.btn:active,
+.btn.btn__selected,
+.btn.btn__selected:focus
+ {
+  color: white;
+  background-color: $main-button-color;
+  opacity: 1;
+}
+
+
+/*
+ * various sizes
+ */
+
+.btn--xs {
+  font-size: $font-size-s;
+  line-height: 1.5;
+}
+
+.btn--full-width {
+  width: 100%;
+}
+
+.btn--over-harf-row {
+    width: 60%;
+    padding: 10px 0;
+    margin: 10px auto;
+    border-radius: $border-radius-s;
+}
+
+
+/*
+ * various colors
+ */
+
+.btn--success,
+.btn--success:focus {
+  color: $success-color;
+  background-color: $white;
+  border-color: $success-color;
+}
+
+.btn--success:hover,
+.btn--success:active,
+ {
+  color: $white;
+  background-color: $success-color;
+  border-color: $success-color;
+}
+
+.btn--success__selected {
+  color: $white;
+  background-color: darken($color: $success-color, $amount: 25);
+  border-color: darken($color: $success-color, $amount: 25);
+}
+
+.btn--success:disabled {
+  color: $white;
+  background-color: darken($color: $success-color, $amount: 25);
+  border-color: darken($color: $success-color, $amount: 25);
+}

@@ -1,0 +1,40 @@
+.contents {
+  width: 100%;
+  background-color: $background-color;
+  max-width: 1080px !important;
+  margin: 0 auto;
+}
+
+.feature-row {
+  padding-top: $padding-xl;
+}
+
+.action-button-row {
+  margin-top: $margin-xl;
+  margin-bottom: $margin-l;
+  text-align: center;
+}
+
+.result-text-row {
+  padding-top: $padding-xl;
+  text-align: center;
+
+  .result-text {
+    width: 80%;
+    margin-bottom: $margin-2xl;
+  }
+}
+
+.share-icon-container .img-wrapper img {
+  width: 20%;
+}
+
+@media ( min-width: 600px) {
+  .item-wrapper {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

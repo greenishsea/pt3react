@@ -1,0 +1,42 @@
+@-webkit-keyframes pulse {
+  30% {
+    -webkit-transform: scale(0.1, 0.1);
+    opacity: 0.0;
+  }
+  35% {
+    opacity: 1.0;
+  }
+  40% {
+    -webkit-transform: scale(1.2, 1.2);
+    opacity: 0.0;
+  }
+}
+
+.animation-pulse {
+  border: 2px solid $animation-color-main;
+  border-radius: 100px;
+  height: 40px;
+  width: 40px;
+  position: relative;
+  top: -33px;
+  left: -15px;
+  animation: pulse 2s ease-out;
+  animation-iteration-count: infinite;
+  // opacity: 0.0;
+  opacity: 0.8;
+}
+
+/* from ReactCSSTransitionGroup sample code */
+
+// .sample-enter {
+//   -webkit-transition: 1s ease-in;
+// }
+// .sample-enter.sample-enter-active {
+//   font-size: 80px;
+// }
+// .sample-leave {
+//   -webkit-transition: .5s ease-out;
+// }
+// .sample-leave.sample-leave-active {
+//   font-size: 10px;
+// }

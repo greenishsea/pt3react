@@ -1,0 +1,49 @@
+.header--spa {
+  position: fixed;
+  // position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  height: $nav-height;
+  background-color: $header-background-color;
+  border-bottom: solid 2px $header-border-bottom-color;
+  background-image: none;
+}
+
+.main-nav {
+  display: flex;
+  padding-left: 0;
+  max-width: 1080px !important;
+  margin: 0 auto;
+
+  li:first-child {
+    margin-right: auto;
+  }
+  li {
+    display: block;
+  }
+  .btn--nav {
+    /* .btn class needs to be along with */
+    display: block;
+    min-width: 70px;
+    margin: $margin-m $margin-s $margin-m $margin-m; /* for 320px devise  */
+    border-radius: $border-radius-m;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .btn--nav.right-most {
+    margin-right: $margin-m; /* for 320px devise  */
+  }
+  .btn--nav.btn--nav-active {
+    color: white;
+    background-color: $main-button-color;
+    pointer-events: none;
+    opacity: 1;
+  }
+  .btn--nav.btn--nav-active:focus {
+    color: white;
+    background-color: $main-button-color;
+    pointer-events: none;
+    opacity: 1;
+  }
+}

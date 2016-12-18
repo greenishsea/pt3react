@@ -1,0 +1,16 @@
+.share-icon {
+  cursor: pointer;
+}
+
+.share-icon__img--big {
+  width: 180px;
+}
+
+.share-icon__title--big {
+  font-size: $font-size-2xl;
+}
+
+.share-icon__img--big:hover,
+.share-icon__title--big:hover {
+  opacity: 0.8;
+}

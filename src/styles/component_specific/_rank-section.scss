@@ -1,0 +1,37 @@
+.rank-section {
+  margin-right: 5%;
+  margin-left: 5%;
+  padding-top: $margin-xl;
+  padding-bottom: $margin-xl;
+  border: solid 2px $sub-border-color;
+  border-radius: $border-radius-l;
+
+  .rank-section-heading {
+    text-align: center;
+    margin-bottom: $margin-xl;
+    font-size: $font-size-2xl;
+  }
+  .rank-section-media-container {
+    min-height: 300px;
+    margin: 0 20%;
+    border-radius: $border-radius-s;
+    .rank-media-row {
+      margin-bottom: $margin-l;
+    }
+  }
+}
+
+/*
+ * INFO: '.rank-badge' below is not nested by any container
+ *       because drag (sorting) gimic generates a copied element
+ *       outside of containers.
+ */
+.rank-badge {
+  display: block;
+  font-size: 30px;
+  width: 50px;
+  background-color: $brand-accent-color;
+  color: $white;
+  text-align: center;
+  border: none;
+}
