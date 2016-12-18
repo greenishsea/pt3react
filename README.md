@@ -60,10 +60,10 @@ npm run build
 - if cloning on a server-side project, recommends to designate the folder name to 'client' 
 
 - Sample App Locations data are retrived from mock json in default.
-  In case of retriving from server-side, you should modify files below.
+  In case of retrieving from server-side, you should modify files below.
   - api/location.js
   - constants/url.js
-  - api/location.js
+  - reducers/location.js
 
 - You can change root path with modifying a file below.
   - constants/path.js
