@@ -48,7 +48,6 @@ export default class MediaItemMid extends Component {
 	}
 
   render() {
-    const dummyf = function(){};
     return (
         <div className="media--mid">
             <hr className="hr--gray" />
