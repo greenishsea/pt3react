@@ -57,5 +57,5 @@ export const params_modal_location_hasAlreadyReachedMaxPick = {
   ...modalDefault,
   title: 'You have already picked 3 places.',
   subTitle: '',
-  bodyText: 'Please move to Plan page or click "Picked" button for unpicking.',
+  bodyText: `Let's move to Plan page or click "Picked!" button for unpicking.`,
 };
