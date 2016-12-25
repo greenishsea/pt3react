@@ -29,6 +29,7 @@ module.exports = (options) => {
       }),
       new HtmlWebpackPlugin({
         template: './src/index.html',
+        favicon: 'src/assets/images/favicon.ico',
         minify: {
           removeComments: true,
           collapseWhitespace: true,
@@ -113,7 +114,7 @@ module.exports = (options) => {
       },
     },
     {
-      test: /\.(eot|ttf|wav|mp3)$/,
+      test: /\.(eot|ttf|wav|mp3|ico)$/,
       loader: 'file-loader',
       query: {
         name: ( options.isProduction ? 'assets/etc/[hash].[ext]' : '[path][name].[ext]?[hash]' ),

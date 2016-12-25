@@ -1,6 +1,5 @@
 import 'babel-polyfill';
 import '../styles/index.scss'; // webpack needs this style src entry reference.
-// require('./favicon.ico'); // Tell webpack to load favicon.ico
 
 import React from 'react';
 import { render } from 'react-dom';
