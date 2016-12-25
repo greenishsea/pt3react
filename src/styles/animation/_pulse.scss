@@ -1,32 +1,47 @@
+/*
+ * animation code
+ */
 @-webkit-keyframes pulse {
-  30% {
+  0% {
     -webkit-transform: scale(0.1, 0.1);
     opacity: 0.0;
   }
   35% {
     opacity: 1.0;
   }
-  40% {
-    -webkit-transform: scale(1.2, 1.2);
+  70% {
+    -webkit-transform: scale(1.4, 1.4);
     opacity: 0.0;
   }
 }
 
-.animation-pulse {
+%animation-pulse {
   border: 2px solid $animation-color-main;
   border-radius: 100px;
+  opacity: 0.0;
+  animation-name: pulse;
+  animation-timing-function: ease-out;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  // animation-delay: 1s;
+}
+
+
+/*
+ * applied animation code
+ */
+.a-pick-counter {
+  @extend %animation-pulse;
   height: 40px;
   width: 40px;
   position: relative;
   top: -33px;
   left: -15px;
-  animation: pulse 2s ease-out;
-  animation-iteration-count: infinite;
-  // opacity: 0.0;
-  opacity: 0.8;
 }
 
-/* from ReactCSSTransitionGroup sample code */
+
+
+/* INFO: ReactCSSTransitionGroup sample code */
 
 // .sample-enter {
 //   -webkit-transition: 1s ease-in;
