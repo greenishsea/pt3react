@@ -39,7 +39,7 @@ export const params_modal_location_justReachedMaxPick = {
   bodyText: 'Want to move to Plan page?',
   buttons: [
     {
-      label: LBL_YES,
+      label: 'Sure!',
       className: 'btn--success',
       onClick: navigate_to_plan,
       plusModalHide: true,
