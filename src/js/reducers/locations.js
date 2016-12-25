@@ -6,7 +6,8 @@ import { LOCATION_GET_ITEMS,
          LOCATION_SCROLL_CONTAINER_END,
          LOCATION_TOGGLE_PICK_STATE,
          LOCATION_PICKEDLOCATION_SORT_END,
-         LOCATION_CLICK_UNPICK_BUTTON } from '../actions';
+         LOCATION_CLICK_UNPICK_BUTTON,
+         LOCATION_UPDATE_FLAGS } from '../actions';
 import * as initialState from './initialState';
 import { URL_FOR_IMAGE_LOADING } from '../constants/url';
 import * as locationReducerHelper from '../logic/helpers/locationReducerHelper';
@@ -58,6 +59,11 @@ export function locations(state = initialState.locations, action) {
     }
     case LOCATION_TOGGLE_PICK_STATE:
       return locationReducerHelper.updatePickedLocation(state, action);
+    case LOCATION_UPDATE_FLAGS:
+      return {
+        ...state,
+        ...action.payload.targetFlags
+      }
     default:
       return state;
   }

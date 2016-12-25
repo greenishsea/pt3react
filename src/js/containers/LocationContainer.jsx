@@ -5,8 +5,13 @@ import Box from '../components/Box.jsx'
 import MediaItemMid from '../components/MediaItemMid.jsx'
 import { location_togglePickState,
          location_clickMoreButton,
-         location_scrollContainerEnd } from '../actions';
+         location_scrollContainerEnd,
+         location_updateFlags,
+         modal_show } from '../actions';
 import { LOADING_POSITION_AWAY_FROM_BOTTOM_DECIMAL } from '../constants/common';
+import { params_modal_location_justReachedMaxPick,
+         params_modal_location_hasAlreadyReachedMaxPick } from '../params/modal'
+
 
 class LocationContainer extends Component {
 
@@ -18,6 +23,20 @@ class LocationContainer extends Component {
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.boundOnScroll);
+  }
+
+  componentDidUpdate() {
+    const {modal_show, location_updateFlags} = this.props;
+    const {isAlreadyReachedMaxPick, isReachedMaxPick} = this.props.locations;
+
+    // Show modal if flagged
+    if (isAlreadyReachedMaxPick) {
+        modal_show(params_modal_location_hasAlreadyReachedMaxPick);
+        location_updateFlags({isAlreadyReachedMaxPick: !isAlreadyReachedMaxPick});
+    } else if (isReachedMaxPick) {
+        modal_show(params_modal_location_justReachedMaxPick);
+        location_updateFlags({isReachedMaxPick: !isReachedMaxPick});
+    }
   }
 
   onScroll(ev) {
@@ -43,14 +62,15 @@ class LocationContainer extends Component {
   }
 
   render() {
-    const { items, locationsDisplayedIndex, isMoreButtonClicked, additionalClassNames } = this.props;
+    const { additionalClassNames } = this.props;
+    const { items, locationsDisplayedIndex, isMoreButtonClicked } = this.props.locations;
+
     const locationsDisplayed = items.slice(0, locationsDisplayedIndex);
     // for onScroll event handler
     this.isMoreButtonClicked = isMoreButtonClicked;
 
     let content;
     if (items === null || items.length === 0) {
-      // content =  <div>Loading...</div>;
       content = <div style={{paddingTop: 100 + 'px', paddingBottom: 300 + 'px', textAlign: 'center'}}>
                   <img src="/assets/images/svg/loader-spin-gray.svg" width="78" height="78" alt="" />
                 </div>;
@@ -86,16 +106,15 @@ const _additionalClassNames = [ 'item-wrapper' ];
 
 function mapStateToProps(state, ownProps) {
   return {
-    // locations: state.locations,
-    items: state.locations.items,
-    locationsDisplayedIndex: state.locations.locationsDisplayedIndex,
-    isMoreButtonClicked: state.locations.isMoreButtonClicked,
-    additionalClassNames: _additionalClassNames
+    locations: state.locations,
+    additionalClassNames: _additionalClassNames,
   };
 }
 
 export default connect(mapStateToProps, {
   location_togglePickState,
   location_clickMoreButton,
-  location_scrollContainerEnd
+  location_scrollContainerEnd,
+  location_updateFlags,
+  modal_show
 })(LocationContainer);

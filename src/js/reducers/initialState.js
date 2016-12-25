@@ -16,6 +16,11 @@ export const auth = {
   statusText: null
 };
 
+export const modal = {
+  show: false,
+  content: {},
+};
+
 export const locations = {
   items: [],
   itemsPicked: [],

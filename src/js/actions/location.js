@@ -98,3 +98,15 @@ export function location_clickUnpickButton(payload) {
     payload
   };
 }
+
+/**
+ * update specified flags
+ * @param {object} payload.targetFlags  :target flags
+ */
+export const LOCATION_UPDATE_FLAGS = "LOCATION_UPDATE_FLAGS";
+export function location_updateFlags(targetFlags) {
+  return {
+    type: LOCATION_UPDATE_FLAGS,
+    payload: {targetFlags}
+  };
+}

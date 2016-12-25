@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { locations } from './locations';
+import { modal } from './modal';
 import { auth } from './auth';
 import { serverData, features, shareTargets } from './miscReducers';
 // import miscReducers from './miscReducers';
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   serverData, // ** miscReducers for SSR**
   features, // ** miscReducers **
   shareTargets, // ** miscReducers **
+  modal,
 });
 
 export default rootReducer;

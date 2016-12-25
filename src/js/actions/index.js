@@ -3,5 +3,7 @@
 // but but if you do that, it loses linter's const unique checking. Be careful with deciding ACTION_TYPE naming rule.
 export * from './actionTypes';
 export * from './auth';
+export * from './navigation';
+export * from './modal';
 export * from './user';
 export * from './location';

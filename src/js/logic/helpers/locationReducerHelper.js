@@ -1,8 +1,4 @@
-import { showAlertDialog, showConfirmDialog } from '../utils/modalUtil'
-import { navigateTo } from '../utils/navigationUtil'
 import { MAX_NUM_PICKED_LOCATION } from '../../constants/common'
-import { PATH_PLAN } from '../../constants/path'
-import { MSG_WHEN_REACHED_3, MSG_WHEN_OVER_3 } from '../../constants/message'
 
 export function updatePickedLocation(state, action) {
 
@@ -14,28 +10,24 @@ export function updatePickedLocation(state, action) {
   const newItemsPickedLen = newItemsPicked.length;
 
   if(newItemsPickedLen < MAX_NUM_PICKED_LOCATION) {
-    newState.itemsPicked = newItemsPicked;
-    // return updated state
-    return newState;
-
-  } else if(newItemsPickedLen === MAX_NUM_PICKED_LOCATION) {
-    const isConfirmed = showConfirmDialog(MSG_WHEN_REACHED_3);
-    if(isConfirmed) {
-      navigateTo(PATH_PLAN);
+    return {
+      ...newState,
+      itemsPicked: newItemsPicked
     }
-
-    newState.itemsPicked = newItemsPicked;
-    // return updated state
-    return newState;
-
+  } else if(newItemsPickedLen === MAX_NUM_PICKED_LOCATION) {
+    return {
+      ...newState,
+      itemsPicked: newItemsPicked,
+      isReachedMaxPick: true,
+    }
   } else {
-    // when over 3
-    showAlertDialog(MSG_WHEN_OVER_3);
-    // return original state ( not new state )
-    return state;
+    // when over MAX_NUM_PICKED_LOCATION
+    return {
+      ...state, // original state
+      isAlreadyReachedMaxPick: true
+    };
   }
 };
-
 
 function _getLocationNewState(state, targetId) {
 
@@ -58,8 +50,6 @@ function _getLocationNewState(state, targetId) {
     })
   };
 };
-
-
 
 export function dropIsSelectedOfTarget(location, targetId) {
   if(location.isSelected === true && location.id === targetId) {
