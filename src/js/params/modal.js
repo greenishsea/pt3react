@@ -45,7 +45,7 @@ export const params_modal_location_justReachedMaxPick = {
       plusModalHide: true,
     },
     {
-      label: LBL_NO,
+      label: 'Later',
       className: '',
       onClick: modal_hide,
       plusModalHide: false,
