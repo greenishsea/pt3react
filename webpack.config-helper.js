@@ -3,6 +3,7 @@ const Path = require('path')
 const Webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 // const ManifestPlugin = require('webpack-manifest-plugin'); // install and add some manifest plugin when needed
 
 module.exports = (options) => {
@@ -42,7 +43,10 @@ module.exports = (options) => {
           minifyCSS: true,
           minifyURLs: true
         }
-      })
+      }),
+      new CopyWebpackPlugin([
+        { from: 'src/assets', to: 'assets' }
+      ])
     ],
     module: { loaders: [] }
   };
