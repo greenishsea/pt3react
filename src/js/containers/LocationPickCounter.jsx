@@ -15,12 +15,8 @@ class LocationPickCounter extends Component {
   }
 
   render() {
-    const { items } = this.props;
-
-    const count = items.reduce(function(previousValue, currentValue, index, array){
-      return currentValue.isSelected === true ? ++previousValue : previousValue;
-    }, 0);
-    const counter = <span key={count}>{count}</span>;
+    const { selectedTotal } = this.props;
+    const counter = <span key={selectedTotal}>{selectedTotal}</span>;
 
     return (
       <div className="locationPickCounter">
@@ -43,7 +39,7 @@ class LocationPickCounter extends Component {
 
 function mapStateToProps(state, ownProps) {
   return {
-    items: state.locations.items
+    selectedTotal: state.locations.getSelectedTotal()
   };
 }
 

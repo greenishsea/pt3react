@@ -62,12 +62,12 @@ class LocationContainer extends Component {
   }
 
   render() {
-    const { additionalClassNames } = this.props;
-    const { items, locationsDisplayedIndex, isMoreButtonClicked } = this.props.locations;
+    const { locations, additionalClassNames } = this.props;
+    const items = locations.items;
+    const locationsDisplayed = items.slice(0, locations.locationsDisplayedIndex);
 
-    const locationsDisplayed = items.slice(0, locationsDisplayedIndex);
     // for onScroll event handler
-    this.isMoreButtonClicked = isMoreButtonClicked;
+    this.isMoreButtonClicked = locations.isMoreButtonClicked;
 
     let content;
     if (items === null || items.length === 0) {
@@ -84,7 +84,7 @@ class LocationContainer extends Component {
                       title={location.title}
                       description={location.description}
                       isSelected={location.isSelected}
-                      buttonClickHandler={() => this.props.location_togglePickState(location.id)} />
+                      buttonClickHandler={() => this.props.location_togglePickState(location)} />
                   )}
                 </Box>
     }
@@ -93,7 +93,7 @@ class LocationContainer extends Component {
       <div>
         {content}
         <div className="action-button-row">
-            { isMoreButtonClicked === false && <a id="moreButton" className="flex-item btn btn--success btn--over-harf-row" onClick={() => this.props.location_clickMoreButton({})}>More</a> }
+            { this.isMoreButtonClicked === false && <a id="moreButton" className="flex-item btn btn--success btn--over-harf-row" onClick={() => this.props.location_clickMoreButton({})}>More</a> }
         </div>
       </div>
     )

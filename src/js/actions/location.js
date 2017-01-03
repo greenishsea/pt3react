@@ -3,7 +3,7 @@
 // ------------------------------
 
 /**
- * __Comment_for_action__
+ * Get location items
  */
 export const LOCATION_GET_ITEMS = "LOCATION_GET_ITEMS";
 export function location_getItems() {
@@ -13,7 +13,7 @@ export function location_getItems() {
 }
 
 /**
- * __Comment_for_action__
+ * Got location items successfuly
  * @param {array} payload  :Locations
  */
 export const LOCATION_SUCCESS_GET_ITEMS = 'LOCATION_SUCCESS_GET_ITEMS';
@@ -25,7 +25,7 @@ export function location_successGetItems(payload) {
 }
 
 /**
- * __Comment_for_action__
+ * Getting location items failed
  * @param {object} payload  :error object
  */
 export const LOCATION_FAILURE_GET_ITEMS = 'LOCATION_FAILURE_GET_ITEMS';
@@ -37,7 +37,7 @@ export function location_failureGetItems(payload) {
 }
 
 /**
- * __Comment_for_action__
+ * Clicked location container's more button
  * @param {object} payload  :error object
  */
 export const LOCATION_CLICK_MORE_BUTTON = "LOCATION_CLICK_MORE_BUTTON";
@@ -49,7 +49,7 @@ export function location_clickMoreButton(payload) {
 }
 
 /**
- * __Comment_for_action__
+ * Reached the end of the location container
  * @param {object} payload  :error object
  */
 export const LOCATION_SCROLL_CONTAINER_END = "LOCATION_SCROLL_CONTAINER_END";
@@ -62,20 +62,20 @@ export function location_scrollContainerEnd(payload) {
 
 /**
  * Toggle location pick state
- * @param {string} payload.id  :Location id
+ * @param {Location} location  :Location instance
  */
 export const LOCATION_TOGGLE_PICK_STATE = "LOCATION_TOGGLE_PICK_STATE";
-export function location_togglePickState(id) {
+export function location_togglePickState(location) {
   return {
     type: LOCATION_TOGGLE_PICK_STATE,
     payload: {
-      id
+      location: location.toggleIsSelected()
     }
   };
 }
 
 /**
- * end to sort picked location box
+ * End to sort picked location box
  * @param {number} payload.oldIndex  :Location oldIndex
  * @param {number} payload.newIndex  :Location newIndex
  */
@@ -88,20 +88,22 @@ export function location_pickedLocationSortEnd(payload) {
 }
 
 /**
- * click unpick button
- * @param {string} payload.id  :Location id
+ * Clicked unpick button
+ * @param {Location} location  :Location instance
  */
 export const LOCATION_CLICK_UNPICK_BUTTON = "LOCATION_CLICK_UNPICK_BUTTON";
-export function location_clickUnpickButton(payload) {
+export function location_clickUnpickButton(location) {
   return {
     type: LOCATION_CLICK_UNPICK_BUTTON,
-    payload
+    payload: {
+      location: location.dropIsSelected()
+    }
   };
 }
 
 /**
- * update specified flags
- * @param {object} payload.targetFlags  :target flags
+ * Will update specified flags
+ * @param {object} payload.targetFlags  :target flags (varying)
  */
 export const LOCATION_UPDATE_FLAGS = "LOCATION_UPDATE_FLAGS";
 export function location_updateFlags(targetFlags) {

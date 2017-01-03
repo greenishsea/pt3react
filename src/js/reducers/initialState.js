@@ -1,3 +1,5 @@
+import Locations from '../logic/models/Locations';
+
 import {
   PAGE_HOME,
   PAGE_PLAN,
@@ -21,13 +23,7 @@ export const modal = {
   content: {},
 };
 
-export const locations = {
-  items: [],
-  itemsPicked: [],
-  locationsDisplayedIndex: 10,
-  locationsPickedCount: 0,
-  isMoreButtonClicked: false
-};
+export const locations = new Locations();
 
 export const features = {
   items: [
@@ -42,7 +38,7 @@ export const features = {
       id: 2001,
       displayTarget: PAGE_PLAN,
       title: "SORTING",
-      description: "* Currently, drag and drop sort acts just once.",
+      description: "* Sort function is temporalily disabled. Sorry.",
       imagePath: "/assets/images/svg/move-up.svg"
     },
     {

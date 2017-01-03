@@ -14,13 +14,13 @@ const SortableItem = SortableElement(({value, order, buttonClickHandler}) =>  <M
             description={value.description}
             buttonClickHandler={(ev) => {
               ev.stopPropagation();
-              buttonClickHandler({id: value.id}); }} />);
+              buttonClickHandler(value); }} />);
 
 const SortableList = SortableContainer(({items, buttonClickHandler}) => {
     return (
         <div className='rank-section-media-container' >
-            {items.map((value, index) =>
-                <SortableItem key={`item-${index}`} index={index} value={value} order={index + 1} buttonClickHandler={buttonClickHandler}/>
+            {items.map((location, index) =>
+                <SortableItem key={`item-${index}`} index={index} value={location} order={index + 1} buttonClickHandler={buttonClickHandler}/>
             )}
         </div>
     );
