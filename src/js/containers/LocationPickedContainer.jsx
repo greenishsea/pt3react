@@ -18,9 +18,11 @@ const SortableItem = SortableElement(({value, order, buttonClickHandler}) =>  <M
 
 const SortableList = SortableContainer(({items, buttonClickHandler}) => {
     return (
+        // due to sortable malfunction, added disable property to SortableItem for making Unpick button work.
+        // disabled={true}
         <div className='rank-section-media-container' >
             {items.map((location, index) =>
-                <SortableItem key={`item-${index}`} index={index} value={location} order={index + 1} buttonClickHandler={buttonClickHandler}/>
+                <SortableItem key={`item-${index}`} disabled={true} index={index} value={location} order={index + 1} buttonClickHandler={buttonClickHandler}/>
             )}
         </div>
     );
