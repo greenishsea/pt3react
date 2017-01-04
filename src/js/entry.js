@@ -10,6 +10,13 @@ import configureStore from './store/configureStore';
 import routes from './routes';
 
 
+// FIXME experimental: hide app div with jQuery before loading
+// start -------------------------------------------------
+const $app = $('#app');
+$app.hide();
+// end ---------------------------------------------------
+
+
 // A. client side rendering
 // ** INFO **
 // you can pass very initialState to configureStore exec below.
@@ -32,3 +39,9 @@ render(
 //   <Router history={browserHistory} routes={routes} render={applyRouterMiddleware(useScroll())} />,
 //   configureStore
 // );
+
+
+// FIXME experimental: some effect with jQuery when loading
+// start -------------------------------------------------
+$app.delay(400).fadeIn("slow");
+// end ---------------------------------------------------
