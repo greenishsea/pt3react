@@ -29,8 +29,10 @@ export function locations(state = initialState.locations, action) {
       return state;
     }
     case LOCATION_CLICK_MORE_BUTTON: {
-      return state.set('isMoreButtonClicked', true)
-                  .set('locationsDisplayedIndex', state.increaseLocationsDisplayed());
+      return state.withMutations(s =>
+        s.set('isMoreButtonClicked', true)
+         .set('locationsDisplayedIndex', state.increaseLocationsDisplayed())
+      );
     }
     case LOCATION_SCROLL_CONTAINER_END: {
       return state.set('locationsDisplayedIndex', state.increaseLocationsDisplayed());
@@ -43,8 +45,10 @@ export function locations(state = initialState.locations, action) {
       itemsNew = state.items.set(state.items.findIndex(t => t.get('id') === targetId),
                                                              action.payload.location);
       itemsPickedNew = itemsNew.filter(location => { return location.isSelected });
-      return state.set('items', itemsNew)
-                  .set('itemsPicked', itemsPickedNew);
+      return state.withMutations(s =>
+        s.set('items', itemsNew)
+         .set('itemsPicked', itemsPickedNew)
+      );
     }
     case LOCATION_TOGGLE_PICK_STATE: {
       targetId = action.payload.location.id;
@@ -54,12 +58,17 @@ export function locations(state = initialState.locations, action) {
 
       // Decide to show which modal or not after toggling pick state
       if ( state.willBeUnderMaxPick(itemsPickedNew.size) ) {
-        return state.set('items', itemsNew)
-                    .set('itemsPicked', itemsPickedNew);
+        return state.withMutations(s =>
+          s.set('items', itemsNew)
+           .set('itemsPicked', itemsPickedNew)
+        );
+
       } else if( state.willEqualToMaxPick(itemsPickedNew.size) ) {
-        return state.set('items', itemsNew)
-                    .set('itemsPicked', itemsPickedNew)
-                    .set('isReachedMaxPick', true);
+        return state.withMutations(s =>
+          s.set('items', itemsNew)
+           .set('itemsPicked', itemsPickedNew)
+           .set('isReachedMaxPick', true)
+        );
       } else {
         // when picked items are over MAX
         return state.set('isAlreadyReachedMaxPick', true);
