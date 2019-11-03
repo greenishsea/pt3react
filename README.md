@@ -1,4 +1,4 @@
-# pt3react [![Build Status](https://travis-ci.org/greenishsea/pt3react.svg?branch=master)](https://travis-ci.org/greenishsea/pt3react)
+# pt3react
 
 A boilerplate for react & redux frontend project.
 
