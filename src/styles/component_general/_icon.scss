@@ -3,11 +3,12 @@
 }
 
 .share-icon__img--big {
-  width: 180px;
+  width: 100px;
 }
 
 .share-icon__title--big {
   font-size: $font-size-2xl;
+  color: $brand-secondary-color;
 }
 
 .share-icon__img--big:hover,

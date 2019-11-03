@@ -3,17 +3,22 @@
   margin-left: 5%;
   padding-top: $margin-xl;
   padding-bottom: $margin-xl;
-  border: solid 2px $sub-border-color;
-  border-radius: $border-radius-l;
 
   .rank-section-heading {
+    margin: $margin-xl $margin-l $margin-xl;
     text-align: center;
-    margin-bottom: $margin-xl;
     font-size: $font-size-2xl;
+    color: $brand-secondary-color;
+  }
+  .rank-section-content-none {
+    width: 100%;
+    margin-top: 42px;
+    font-size: 22px;
+    text-align: center;
   }
   .rank-section-media-container {
     min-height: 300px;
-    margin: 0 20%;
+    margin: 0 auto;
     border-radius: $border-radius-s;
     .rank-media-row {
       margin-bottom: $margin-l;
@@ -29,8 +34,7 @@
 .rank-badge {
   display: block;
   font-size: 30px;
-  width: 50px;
-  background-color: $brand-accent-color;
+  background-color: $brand-primary-color;
   color: $white;
   text-align: center;
   border: none;

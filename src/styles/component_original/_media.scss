@@ -38,7 +38,7 @@
 
   .media-body {
     display: inline-block;
-    width: 80%;
+    width: 100%;
     padding-left: $padding-m;
     vertical-align: top;
     overflow: hidden;
@@ -46,11 +46,10 @@
   }
   .media__heading {
     font-size: $font-size-l;
-    margin-top: 0;
-    margin-bottom: $padding-s;
+    margin-top: $padding-m;
+    margin-bottom: $padding-m;
   }
   .media-object {
-    width: 60px;
-    height: 60px;
+    width: 100%;
   }
 }
