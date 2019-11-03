@@ -43,6 +43,9 @@ class LocationPickedContainer extends Component {
   render() {
     const { itemsPicked } = this.props;
     return (
+      itemsPicked == null || itemsPicked.size === 0 ?
+        <div className='rank-section-content-none'>(No Pick)</div>
+          :
         <SortableList items={itemsPicked} buttonClickHandler={this.props.location_clickUnpickButton} onSortEnd={this.onSortEnd} />
     )
   }
