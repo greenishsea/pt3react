@@ -51,6 +51,7 @@ class ModalCommon extends Component {
         {...content.attr}
         show={show}
         onHide={() => this.onClickButton(content.attr.onHide, false)}
+        animation={false}
       >
         <Modal.Header closeButton={content.attr.backdrop === true ? true : false}>
           <Modal.Title>{content.title}</Modal.Title>

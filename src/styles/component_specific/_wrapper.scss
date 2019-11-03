@@ -29,6 +29,10 @@
   width: 20%;
 }
 
+.modal-backdrop.in {
+  opacity: 0.8;
+}
+
 @media ( min-width: 600px) {
   .item-wrapper {
     display: -webkit-flex;
